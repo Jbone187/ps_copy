@@ -21,7 +21,7 @@ function COM_ADF_PUT() {
     if (Test-Path -Path $LocalOutbox) {
 
     Set-Content -Path $LogFile -Value "Starting Script"
-    Add-Content -Path $LogFile -Value "Transfer Completed to Azure Data Factory Share"
+    Add-Content -Path $LogFile -Value "Stuff"
 
     $Results = Copy-Item -Path $LocalOutbox -Destination $RemoteCifs
     $NewdummyFile = Get-ChildItem 'D:\SFTP\######' -Filter *#####* -Recurse
@@ -35,7 +35,7 @@ function COM_ADF_PUT() {
 
        $Result = $Result -split "`r`n"
        foreach ($Line in $Result) {Add-Content -Path $LogFile -Value $Line}
-       Add-Content -Path $LogFile -Value "Failed to copy files to Azure DF CIFS Share"
+       Add-Content -Path $LogFile -Value "Message"
        SendError
        EOS
       
